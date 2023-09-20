@@ -11,9 +11,9 @@ const {
 router.route("/")
     .get(getTodos)
     .post(createTodo)
-    .put(updateTodo);
 router.route("/:id")
     .get(getTodo)
-    .delete(deleteTodo);
+    .delete(deleteTodo)
+    .put(updateTodo);
 
 module.exports = router;

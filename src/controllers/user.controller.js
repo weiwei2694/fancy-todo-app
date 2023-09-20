@@ -133,7 +133,8 @@ const createUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
 	try {
-		const { id, name, email, phone } = req.body;
+		const id = req.params.id;
+		const { name, email, phone } = req.body;
 
 		if (!id)
 			return res.status(400).json({

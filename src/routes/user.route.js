@@ -11,12 +11,12 @@ const {
 
 router.route("/")
     .get(getUsers)
-    .post(createUser)
-    .put(updateUser);
+    .post(createUser);
 router.route("/:id")
     .get(getUser)
-    .delete(deleteUser);
-router.route("/:id/todos")
+    .delete(deleteUser)
+    .put(updateUser);
+    router.route("/:id/todos")
     .get(getUserTodos)
 
 module.exports = router;

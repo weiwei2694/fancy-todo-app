@@ -32,12 +32,13 @@ const getTodo = async (req, res) => {
 			});
 
 		const result = await todoService.getTodo({ id });
-        
-        if (!result) return res.status(404).json({
-            status: 404,
-            ok: true,
-            msg: "todo not found"
-        })
+
+		if (!result)
+			return res.status(404).json({
+				status: 404,
+				ok: true,
+				msg: "todo not found",
+			});
 
 		res.status(200).json({
 			status: 200,
@@ -116,7 +117,8 @@ const createTodo = async (req, res) => {
 
 const updateTodo = async (req, res) => {
 	try {
-		const { id, title, description, status, dueDate, userId } = req.body;
+		const id = req.params.id;
+		const { title, description, status, dueDate, userId } = req.body;
 
 		if (!id)
 			return res.status(400).json({
